@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (mobileToggle && mobileDrawer && mobileDrawerClose) {
     mobileToggle.addEventListener('click', () => {
-      mobileDrawer.classList.add('open');
+      mobileDrawer.classList.toggle('open');
     });
 
     mobileDrawerClose.addEventListener('click', () => {
@@ -48,64 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Counter Animation on Scroll
-  const counters = document.querySelectorAll('.counter');
-  let animatedCounters = false;
-
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !animatedCounters) {
-        animatedCounters = true;
-        counters.forEach(counter => {
-          const target = +counter.getAttribute('data-target');
-          const duration = 2000;
-          const stepTime = 20;
-          const steps = duration / stepTime;
-          const increment = target / steps;
-          let current = 0;
-
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              current = target;
-              clearInterval(timer);
-            }
-            if (target >= 1000) {
-              counter.textContent = `+${(current / 1000).toFixed(1)}k`;
-            } else {
-              counter.textContent = `+${Math.floor(current)}%`;
-            }
-          }, stepTime);
-        });
-      }
-    });
-  }, { threshold: 0.3 });
-
-  const resultadosMetrics = document.querySelector('.resultados-metrics-grid');
-  if (resultadosMetrics) {
-    counterObserver.observe(resultadosMetrics);
-  }
-
-  // 5. Interactive Tabs System (Resultados)
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabPanels = document.querySelectorAll('.tab-content-panel');
-
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetTab = btn.getAttribute('data-tab');
-
-      tabBtns.forEach(b => b.classList.remove('active'));
-      tabPanels.forEach(p => p.classList.remove('active'));
-
-      btn.classList.add('active');
-      const activePanel = document.getElementById(targetTab);
-      if (activePanel) {
-        activePanel.classList.add('active');
-      }
-    });
-  });
-
-  // 6. Interactive FAQ Accordions
+  // 4. Interactive FAQ Accordions
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     const header = item.querySelector('.faq-header');
@@ -121,16 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 7. Interactive Metodologia Steps Highlight
-  const pipelineSteps = document.querySelectorAll('.pipeline-step');
-  pipelineSteps.forEach(step => {
-    step.addEventListener('click', () => {
-      pipelineSteps.forEach(s => s.classList.remove('active'));
-      step.classList.add('active');
-    });
-  });
-
-  // 8. Lead Diagnosis Modal Controls
+  // 5. Lead Diagnosis Modal Controls
   const modal = document.getElementById('contactModal');
   const openModalBtns = document.querySelectorAll('.open-modal-btn');
   const modalClose = document.getElementById('modalClose');
@@ -154,7 +88,75 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 9. Scroll Reveal Animations (IntersectionObserver)
+  // 8.1 Proof Image Lightbox Modal Controls
+  const proofLightbox = document.getElementById('proofLightbox');
+  const proofLightboxImg = document.getElementById('proofLightboxImg');
+  const proofLightboxCaption = document.getElementById('proofLightboxCaption');
+  const proofLightboxClose = document.getElementById('proofLightboxClose');
+  const proofLightboxBackdrop = document.getElementById('proofLightboxBackdrop');
+  const proofMediaBoxes = document.querySelectorAll('.proof-media-box');
+
+  const openProofLightbox = (mediaBox) => {
+    if (!proofLightbox || !proofLightboxImg) return;
+    const imgSrc = mediaBox.getAttribute('data-img-src');
+    const imgAlt = mediaBox.getAttribute('data-img-alt') || '';
+    const caption = mediaBox.getAttribute('data-img-caption') || '';
+
+    proofLightboxImg.src = imgSrc;
+    proofLightboxImg.alt = imgAlt;
+    if (proofLightboxCaption) {
+      proofLightboxCaption.textContent = caption;
+    }
+
+    proofLightbox.classList.add('open');
+    proofLightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeProofLightbox = () => {
+    if (!proofLightbox) return;
+    proofLightbox.classList.remove('open');
+    proofLightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  proofMediaBoxes.forEach(box => {
+    box.addEventListener('click', () => openProofLightbox(box));
+    box.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openProofLightbox(box);
+      }
+    });
+  });
+
+  if (proofLightboxClose) {
+    proofLightboxClose.addEventListener('click', closeProofLightbox);
+  }
+
+  if (proofLightboxBackdrop) {
+    proofLightboxBackdrop.addEventListener('click', closeProofLightbox);
+  }
+
+  if (proofLightbox) {
+    proofLightbox.addEventListener('click', (e) => {
+      if (e.target === proofLightbox) {
+        closeProofLightbox();
+      }
+    });
+  }
+
+  // Global ESC Key Handler for Modals
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (proofLightbox && proofLightbox.classList.contains('open')) {
+        closeProofLightbox();
+      }
+      if (modal && modal.classList.contains('open')) {
+        modal.classList.remove('open');
+      }
+    }
+  });
   const revealElements = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right, .reveal-stagger');
 
   const revealObserver = new IntersectionObserver((entries) => {
