@@ -3,7 +3,22 @@
    ========================================================================== */
 
 // WhatsApp que recebe os diagnósticos (DDI + DDD + número, só dígitos)
-const WHATSAPP_NUMBER = '5500000000000';
+const WHATSAPP_NUMBER = '5512988978125';
+
+// Greeting that tells João which page (and service) the visitor came from.
+// Each page sets <body data-origin="pela página de ..." data-service="...">.
+function whatsappGreeting() {
+  const origin = document.body.dataset.origin || 'pela página inicial';
+  const service = document.body.dataset.service;
+  let interest = ', e gostaria de saber mais sobre os seus serviços.';
+  if (service) {
+    // on a service's own page the origin already names it
+    interest = 'servicePage' in document.body.dataset
+      ? ', e tenho interesse nesse serviço.'
+      : `, e tenho interesse em ${service}.`;
+  }
+  return `Olá, João! Vim pelo site, ${origin}${interest}`;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -190,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const data = new FormData(diagForm);
       const lines = [
-        'Olá, João! Quero solicitar um diagnóstico.',
+        `Olá, João! Vim pelo site, ${document.body.dataset.origin || 'pela página inicial'}, e quero solicitar um diagnóstico.`,
         '',
         `*Empresa:* ${data.get('empresa')}`,
         `*Segmento:* ${data.get('segmento')}`,
@@ -293,6 +308,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', markToc, { passive: true });
     markToc();
   }
+
+  // 5.6 Direct WhatsApp links get the contextual greeting
+  document.querySelectorAll('[data-wa]').forEach(link => {
+    link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappGreeting())}`;
+  });
 
   // 5.2 Floating diagnosis button appears after the hero
   const diagFloat = document.querySelector('.diag-float');

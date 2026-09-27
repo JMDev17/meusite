@@ -4193,3 +4193,25 @@ a.project-card {
 .project-card:hover .project-link svg {
   transform: translate(2px, -2px);
 }
+
+/* WhatsApp buttons */
+.btn-wa svg {
+  color: #25d366;
+  flex-shrink: 0;
+}
+
+.cta-final-box .btn {
+  margin: 6px;
+}
+
+.diag-alt {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.diag-alt a {
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
