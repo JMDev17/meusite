@@ -4334,3 +4334,90 @@ a.project-card {
   outline: 2px solid var(--accent-cyan);
   outline-offset: 2px;
 }
+
+/* ==========================================================================
+   LEGAL PAGES + 404
+   ========================================================================== */
+.legal-updated {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.legal-article .page-hero {
+  padding-bottom: 30px;
+}
+
+.footer-legal a {
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.footer-legal a:hover {
+  color: var(--accent-cyan);
+}
+
+.diag-hint a {
+  color: var(--accent-cyan);
+}
+
+.notfound {
+  min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+
+.notfound-code {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: clamp(7rem, 22vw, 13rem);
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--accent-cyan);
+  opacity: 0.85;
+  margin-bottom: 10px;
+}
+
+.notfound .hero-headline {
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+}
+
+.notfound-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 860px;
+  margin: 56px auto 0;
+  text-align: left;
+}
+
+.glass-card.notfound-link {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.notfound-link strong {
+  color: var(--text-white);
+  font-size: 1rem;
+}
+
+.notfound-link span {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.notfound-link .servico-link-cta {
+  color: var(--accent-cyan);
+  margin-top: 4px;
+}
+
+@media (max-width: 700px) {
+  .notfound-links {
+    grid-template-columns: 1fr;
+  }
+}
