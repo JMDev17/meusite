@@ -109,10 +109,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const openModal = (service) => {
     resetDiagnosis();
-    if (service) {
-      const serviceSelect = document.getElementById('diagService');
-      if (serviceSelect) serviceSelect.value = service;
-    }
+    // Service context: the button's own service, or the service page the visitor is on
+    const serviceField = document.getElementById('diagService');
+    if (serviceField) serviceField.value = service || document.body.dataset.service || '';
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
     if (mobileDrawer) mobileDrawer.classList.remove('open');
@@ -164,8 +163,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function validateDiagStep() {
-    const fields = Array.from(diagSteps[diagCurrent].querySelectorAll('.form-control'));
+    const step = diagSteps[diagCurrent];
+    const fields = Array.from(step.querySelectorAll('input:not([type=hidden]), select, textarea'));
     fields.forEach(f => f.classList.add('touched'));
+    // checkbox groups that need at least one option ticked
+    step.querySelectorAll('[data-require-one]').forEach(group => {
+      const boxes = Array.from(group.querySelectorAll('input[type=checkbox]'));
+      boxes[0].setCustomValidity(boxes.some(b => b.checked) ? '' : group.dataset.requireMsg);
+    });
     const invalid = fields.find(f => !f.checkValidity());
     if (invalid) {
       invalid.reportValidity();
@@ -191,6 +196,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     diagBack.addEventListener('click', () => showDiagStep(diagCurrent - 1));
 
+    // clear the "tick at least one" error as soon as any box changes
+    diagForm.querySelectorAll('[data-require-one] input').forEach(box => {
+      box.addEventListener('change', () => box.closest('[data-require-one]').querySelector('input').setCustomValidity(''));
+    });
+
     // Enter on an intermediate step advances instead of submitting
     diagForm.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && diagCurrent < diagSteps.length - 1) {
@@ -210,12 +220,13 @@ document.addEventListener('DOMContentLoaded', () => {
         `*Empresa:* ${data.get('empresa')}`,
         `*Segmento:* ${data.get('segmento')}`,
         `*Cidade/UF:* ${data.get('cidade')}`,
-        `*Serviço de interesse:* ${data.get('servico')}`,
-        `*Objetivo:* ${data.get('objetivo')}`,
+        `*Como os clientes chegam hoje:* ${data.getAll('canais').join(', ')}`,
+        `*O que mais incomoda:* ${data.get('desafio')}`,
         `*Site:* ${data.get('site') || 'Não tenho site'}`,
         `*Investimento previsto:* ${data.get('investimento')}`,
         `*Já investe em SEO:* ${data.get('investe_seo')}`
       ];
+      if (data.get('servico')) lines.splice(7, 0, `*Serviço que viu no site:* ${data.get('servico')}`);
       if (data.get('contexto')) lines.push(`*Contexto:* ${data.get('contexto')}`);
       lines.push('', `*Nome:* ${data.get('nome')}`, `*WhatsApp:* ${data.get('whatsapp')}`);
       if (data.get('email')) lines.push(`*E-mail:* ${data.get('email')}`);

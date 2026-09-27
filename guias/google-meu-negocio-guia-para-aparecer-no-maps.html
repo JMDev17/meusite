@@ -355,16 +355,17 @@
         </fieldset>
 
         <fieldset class="diag-step">
-          <legend>O que você quer resolver?</legend>
-          <p class="diag-hint">Não precisa ter certeza. Na dúvida, escolha “Ainda não sei”.</p>
+          <legend>Como está a sua empresa hoje?</legend>
+          <p class="diag-hint">Não precisa saber qual serviço contratar. Descobrir isso é o meu trabalho.</p>
           <div class="form-group">
-            <label for="diagService">Serviço de interesse</label>
-            <select id="diagService" name="servico" class="form-control" required><option value="" disabled selected>Selecione uma opção</option><option value="Consultoria SEO">Consultoria SEO</option><option value="Auditoria de SEO">Auditoria de SEO</option><option value="Google Meu Negócio">Google Meu Negócio</option><option value="SEO Local">SEO Local</option><option value="Criação de Sites">Criação de Sites</option><option value="GEO (SEO para IAs)">GEO (SEO para IAs)</option><option value="Ainda não sei">Ainda não sei</option></select>
+            <span class="diag-label">Como os clientes chegam até você hoje? <small>(pode marcar mais de uma)</small></span>
+            <div class="diag-chips" data-require-one data-require-msg="Marque pelo menos uma opção."><label class="diag-chip"><input type="checkbox" name="canais" value="Indicação"><span>Indicação</span></label><label class="diag-chip"><input type="checkbox" name="canais" value="Instagram / redes sociais"><span>Instagram / redes sociais</span></label><label class="diag-chip"><input type="checkbox" name="canais" value="Pesquisa no Google"><span>Pesquisa no Google</span></label><label class="diag-chip"><input type="checkbox" name="canais" value="Google Maps"><span>Google Maps</span></label><label class="diag-chip"><input type="checkbox" name="canais" value="Anúncios pagos"><span>Anúncios pagos</span></label><label class="diag-chip"><input type="checkbox" name="canais" value="Ainda não chegam de forma constante"><span>Ainda não chegam de forma constante</span></label></div>
           </div>
           <div class="form-group">
-            <label for="diagObjetivo">Principal objetivo</label>
-            <select id="diagObjetivo" name="objetivo" class="form-control" required><option value="" disabled selected>Selecione uma opção</option><option value="Gerar mais contatos e clientes">Gerar mais contatos e clientes</option><option value="Aparecer no Google">Aparecer no Google</option><option value="Aparecer no Google Maps">Aparecer no Google Maps</option><option value="Ser recomendado pelas IAs">Ser recomendado pelas IAs</option><option value="Melhorar o site atual">Melhorar o site atual</option><option value="Criar um site novo">Criar um site novo</option></select>
+            <span class="diag-label">O que mais te incomoda hoje?</span>
+            <div class="diag-options"><label class="diag-option"><input type="radio" name="desafio" value="Quase ninguém me encontra no Google" required><span><strong>Quase ninguém me encontra no Google</strong><small>Quem pesquisa pelo meu serviço encontra o concorrente.</small></span></label><label class="diag-option"><input type="radio" name="desafio" value="Apareço, mas pouca gente entra em contato" required><span><strong>Apareço, mas pouca gente entra em contato</strong><small>Tenho visitas ou visualizações, mas poucos pedidos.</small></span></label><label class="diag-option"><input type="radio" name="desafio" value="Não tenho site ou meu site está desatualizado" required><span><strong>Não tenho site ou meu site está desatualizado</strong><small>Preciso de uma presença que passe confiança.</small></span></label><label class="diag-option"><input type="radio" name="desafio" value="Dependo demais de indicação ou de anúncios" required><span><strong>Dependo demais de indicação ou de anúncios</strong><small>Quero um canal que traga clientes todo mês.</small></span></label><label class="diag-option"><input type="radio" name="desafio" value="Não sei ao certo, quero uma análise" required><span><strong>Não sei ao certo, quero uma análise</strong><small>Quero entender onde estão as oportunidades.</small></span></label></div>
           </div>
+          <input type="hidden" name="servico" id="diagService">
         </fieldset>
 
         <fieldset class="diag-step">

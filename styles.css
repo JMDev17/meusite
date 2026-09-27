@@ -4215,3 +4215,122 @@ a.project-card {
   color: var(--accent-cyan);
   font-weight: 600;
 }
+
+/* Diagnosis step 2: selectable chips and option cards */
+.diag-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.diag-label small {
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+.diag-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.diag-chip,
+.diag-option {
+  position: relative;
+  cursor: pointer;
+}
+
+.diag-chip input,
+.diag-option input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.diag-chip span {
+  display: inline-block;
+  padding: 7px 13px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  transition: var(--transition-fast);
+}
+
+.diag-chip:hover span {
+  border-color: rgba(94, 235, 172, 0.35);
+  color: var(--text-white);
+}
+
+.diag-chip input:checked + span {
+  background: rgba(94, 235, 172, 0.14);
+  border-color: var(--accent-cyan);
+  color: var(--text-white);
+}
+
+.diag-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.diag-option span {
+  display: block;
+  position: relative;
+  padding: 11px 14px 11px 42px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.03);
+  transition: var(--transition-fast);
+}
+
+.diag-option span::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--text-dim);
+  transition: var(--transition-fast);
+}
+
+.diag-option strong {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+.diag-option small {
+  display: block;
+  margin-top: 1px;
+  font-size: 0.76rem;
+  color: var(--text-dim);
+}
+
+.diag-option:hover span {
+  border-color: rgba(94, 235, 172, 0.35);
+}
+
+.diag-option input:checked + span {
+  border-color: var(--accent-cyan);
+  background: rgba(94, 235, 172, 0.08);
+}
+
+.diag-option input:checked + span::before {
+  border-color: var(--accent-cyan);
+  background: radial-gradient(circle, var(--accent-cyan) 45%, transparent 50%);
+}
+
+.diag-chip input:focus-visible + span,
+.diag-option input:focus-visible + span {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
