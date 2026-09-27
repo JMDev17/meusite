@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O que é GEO e como fazer sua empresa aparecer no ChatGPT | Guias JM</title>
+  <meta name="description" content="Entenda o que é GEO (Generative Engine Optimization), como o ChatGPT e o Gemini escolhem quais empresas recomendar e o passo a passo para preparar a sua.">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="O que é GEO e como fazer sua empresa aparecer no ChatGPT | Guias JM">
+  <meta property="og:description" content="Entenda o que é GEO (Generative Engine Optimization), como o ChatGPT e o Gemini escolhem quais empresas recomendar e o passo a passo para preparar a sua.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Favicon & Stylesheet -->
+  <link rel="icon" type="image/avif" href="../images/favicon.avif">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "O que é GEO e como fazer sua empresa aparecer no ChatGPT", "description": "Entenda o que é GEO (Generative Engine Optimization), como o ChatGPT e o Gemini escolhem quais empresas recomendar e o passo a passo para preparar a sua.", "datePublished": "2026-09-22", "dateModified": "2026-09-22", "articleSection": "GEO e IA", "inLanguage": "pt-BR", "wordCount": 600, "author": {"@type": "Person", "name": "João Menini", "jobTitle": "Consultor SEO"}, "publisher": {"@type": "Organization", "name": "JM Soluções"}}</script>
+</head>
+<body>
+
+  <!-- Background Ambient Glow Spotlights -->
+  <div class="ambient-glow-container">
+    <div class="glow-orb glow-orb-indigo"></div>
+    <div class="glow-orb glow-orb-cyan"></div>
+    <div class="glow-orb glow-orb-violet"></div>
+  </div>
+
+  <!-- [ HEADER / NAVBAR ] -->
+  <header>
+    <nav class="navbar" id="navbar" aria-label="Navegação principal">
+      <a href="../index.html" class="logo">
+        <img src="../images/logo.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="../index.html#sobre">Sobre</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Serviços <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="nav-dropdown-menu">
+            <a href="../servicos/consultoria-seo.html">Consultoria SEO</a>
+            <a href="../servicos/auditoria-seo.html">Auditoria de SEO</a>
+            <a href="../servicos/google-meu-negocio.html">Google Meu Negócio</a>
+            <a href="../servicos/seo-local.html">SEO Local</a>
+            <a href="../servicos/criacao-de-sites.html">Criação de Sites</a>
+            <a href="../servicos/geo-seo-para-ia.html">GEO — SEO para IAs</a>
+          </div>
+        </li>
+        <li><a href="../index.html#roadmap">Roadmap</a></li>
+        <li><a href="../index.html#ia">SEO + IA</a></li>
+        <li><a href="../resultados.html">Resultados</a></li>
+        <li><a href="../guias/index.html" class="active">Guias</a></li>
+        <li><a href="../index.html#faq">FAQ</a></li>
+      </ul>
+
+      <button class="btn btn-primary open-modal-btn">
+        Solicitar diagnóstico
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Fechar menu">&times;</button>
+      <a href="../index.html" class="mobile-nav-link">Início</a>
+      <a href="../index.html#sobre" class="mobile-nav-link">Sobre</a>
+      <div class="mobile-drawer-group">
+        <span class="mobile-drawer-label">Serviços</span>
+        <a href="../servicos/consultoria-seo.html" class="mobile-nav-link">Consultoria SEO</a>
+        <a href="../servicos/auditoria-seo.html" class="mobile-nav-link">Auditoria de SEO</a>
+        <a href="../servicos/google-meu-negocio.html" class="mobile-nav-link">Google Meu Negócio</a>
+        <a href="../servicos/seo-local.html" class="mobile-nav-link">SEO Local</a>
+        <a href="../servicos/criacao-de-sites.html" class="mobile-nav-link">Criação de Sites</a>
+        <a href="../servicos/geo-seo-para-ia.html" class="mobile-nav-link">GEO — SEO para IAs</a>
+      </div>
+      <a href="../index.html#roadmap" class="mobile-nav-link">Roadmap</a>
+      <a href="../index.html#ia" class="mobile-nav-link">SEO + IA</a>
+      <a href="../resultados.html" class="mobile-nav-link">Resultados</a>
+      <a href="../guias/index.html" class="mobile-nav-link">Guias</a>
+      <a href="../index.html#faq" class="mobile-nav-link">FAQ</a>
+      <button class="btn btn-primary open-modal-btn" style="margin-top: 12px;">Solicitar diagnóstico</button>
+    </div>
+  </header>
+
+  <main>
+    <article class="guide-article">
+      <header class="page-hero section-relative guide-hero">
+        <div class="container">
+          <nav aria-label="Você está em">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">Início</a></li>
+              <li><a href="../guias/index.html">Guias</a></li>
+              <li aria-current="page">GEO e IA</li>
+            </ol>
+          </nav>
+          <span class="guide-cat">GEO e IA</span>
+          <h1 class="page-title text-gradient">O que é GEO e como fazer sua empresa aparecer no ChatGPT</h1>
+          <p class="page-lead">Cada vez mais gente pede recomendação de empresa direto para uma IA. Entenda o que é GEO, como o ChatGPT decide quem citar e o que você pode fazer a partir de hoje.</p>
+          <div class="guide-byline">
+            <span class="guide-avatar" aria-hidden="true">JM</span>
+            <div>
+              <strong>João Menini</strong>
+              <span><time datetime="2026-09-22">22 de setembro de 2026</time> · 3 min de leitura</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="container guide-layout">
+        <aside class="guide-aside">
+          <details class="guide-toc" open>
+            <summary>Neste guia</summary>
+            <ol>
+              <li><a href="#o-que-e-geo-em-uma-frase">O que é GEO, em uma frase</a></li>
+              <li><a href="#por-que-isso-importa-agora">Por que isso importa agora</a></li>
+              <li><a href="#como-o-chatgpt-decide-quem-recomendar">Como o ChatGPT decide quem recomendar</a></li>
+              <li><a href="#7-passos-para-deixar-sua-empresa-pronta-para-as-ias">7 passos para deixar sua empresa pronta para as IAs</a></li>
+              <li><a href="#o-que-nao-funciona-e-ninguem-te-conta">O que não funciona (e ninguém te conta)</a></li>
+              <li><a href="#como-medir-se-esta-funcionando">Como medir se está funcionando</a></li>
+              <li><a href="#conclusao">Conclusão</a></li>
+            </ol>
+          </details>
+          <div class="guide-aside-cta">
+            <strong>Quer aplicar isso na sua empresa?</strong>
+            <p>O diagnóstico é gratuito e leva 2 minutos.</p>
+            <button class="btn btn-cyan open-modal-btn" data-service="GEO (SEO para IAs)">Fazer diagnóstico</button>
+          </div>
+        </aside>
+
+        <div class="guide-content">
+          <div class="guide-summary">
+            <span class="guide-summary-title">Resumo rápido</span>
+            <ul>
+              <li>GEO é a otimização da sua presença digital para ser entendida e mencionada por IAs como ChatGPT, Gemini e Perplexity.</li>
+              <li>As IAs recomendam empresas com informação clara, consistente e confirmada por outras fontes.</li>
+              <li>Quase tudo que ajuda no GEO também ajuda no Google. Não é um canal separado, é uma camada a mais.</li>
+              <li>Ninguém pode garantir citação. Dá para aumentar muito as chances.</li>
+            </ul>
+          </div>
+
+          <div class="prose">
+
+<h2 id="o-que-e-geo-em-uma-frase">O que é GEO, em uma frase</h2>
+<p><strong>GEO (Generative Engine Optimization)</strong> é o trabalho de deixar a sua empresa fácil de entender e fácil de confiar para as inteligências artificiais que respondem perguntas, como o ChatGPT, o Gemini, o Perplexity, o Copilot e as Visões Gerais de IA do Google.</p>
+<p>Se o SEO tradicional busca colocar uma página entre os links do Google, o GEO busca colocar a sua marca <em>dentro da resposta</em>.</p>
+
+<h2 id="por-que-isso-importa-agora">Por que isso importa agora</h2>
+<p>Pense em como alguém procurava um dentista há alguns anos: digitava “dentista copacabana” e comparava os links. Hoje, uma parte crescente das pessoas escreve algo como <em>“qual dentista em Copacabana atende sábado e é bem avaliado?”</em> direto para uma IA, e recebe duas ou três indicações prontas.</p>
+<p>Quem aparece nessa resposta ganha o cliente antes mesmo de ele abrir o Google. Quem não aparece, nem entra na disputa.</p>
+
+<h2 id="como-o-chatgpt-decide-quem-recomendar">Como o ChatGPT decide quem recomendar</h2>
+<p>As IAs não têm uma lista secreta de empresas preferidas. Elas montam a resposta com o que conseguem encontrar e entender na internet. Na prática, três coisas pesam muito:</p>
+<ul>
+  <li><strong>Clareza:</strong> o seu site explica, sem rodeio, o que você faz, para quem e onde atende?</li>
+  <li><strong>Consistência:</strong> nome, endereço, telefone e serviços são os mesmos no site, no Google Meu Negócio, no Instagram e nos diretórios?</li>
+  <li><strong>Confirmação:</strong> outras fontes falam de você? Avaliações, matérias, citações em sites do seu setor e listas de “melhores da região” contam.</li>
+</ul>
+<p>Uma empresa excelente, mas com informação escassa ou desencontrada, é praticamente invisível para uma IA.</p>
+
+<h2 id="7-passos-para-deixar-sua-empresa-pronta-para-as-ias">7 passos para deixar sua empresa pronta para as IAs</h2>
+<ol>
+  <li><strong>Pergunte para as IAs sobre você.</strong> Abra o ChatGPT e o Gemini e pergunte “quem é a [sua empresa]?” e “qual o melhor [seu serviço] em [sua cidade]?”. Anote o que aparece, o que está errado e quem aparece no seu lugar.</li>
+  <li><strong>Crie uma página para cada serviço.</strong> Uma página genérica de “serviços” não basta. Cada serviço importante merece uma página própria, explicando o que é, como funciona, preço (ou faixa), prazo e área de atendimento.</li>
+  <li><strong>Responda as perguntas reais dos clientes.</strong> Aquilo que perguntam no WhatsApp todo dia deveria estar no seu site, em formato de pergunta e resposta.</li>
+  <li><strong>Padronize seus dados em todo lugar.</strong> O mesmo nome, endereço, telefone e descrição no site, no Google Meu Negócio, nas redes e nos diretórios.</li>
+  <li><strong>Use dados estruturados.</strong> São marcações no código (Schema.org) que dizem às máquinas, sem ambiguidade, “isto é uma empresa, este é o endereço, estes são os serviços, estas são as perguntas frequentes”.</li>
+  <li><strong>Trabalhe as avaliações.</strong> Muitas avaliações recentes e detalhadas são uma das provas mais fortes de que você é uma boa indicação.</li>
+  <li><strong>Seja citado fora do seu site.</strong> Parcerias, entrevistas, participação em associações do setor e conteúdo em outros sites ajudam a IA a confirmar que você é relevante.</li>
+</ol>
+
+<h2 id="o-que-nao-funciona-e-ninguem-te-conta">O que não funciona (e ninguém te conta)</h2>
+<p>Encher o site de textos gerados por IA, repetir palavras-chave sem parar ou comprar “pacotes para aparecer no ChatGPT” não resolve. As IAs são treinadas justamente para ignorar conteúdo genérico e repetido.</p>
+<blockquote>Se alguém garantir que sua empresa vai aparecer no ChatGPT, desconfie. Ninguém controla a resposta de uma IA. O que dá para fazer é aumentar muito as suas chances com um trabalho sério.</blockquote>
+
+<h2 id="como-medir-se-esta-funcionando">Como medir se está funcionando</h2>
+<p>O GEO ainda não tem um painel oficial como o Search Console, mas dá para acompanhar:</p>
+<ul>
+  <li>Repetir, todo mês, as mesmas perguntas nas principais IAs e registrar as respostas.</li>
+  <li>Olhar no Google Analytics os acessos vindos de chatgpt.com, perplexity.ai e gemini.google.com.</li>
+  <li>Perguntar no atendimento: “como você conheceu a gente?”. A resposta “vi no ChatGPT” já aparece com frequência.</li>
+</ul>
+
+<h2 id="conclusao">Conclusão</h2>
+<p>GEO não é mágica nem modinha. É a consequência natural de ter uma presença digital clara, consistente e confiável, e isso também faz você crescer no Google. Quem começar agora sai na frente enquanto a maioria dos concorrentes ainda nem sabe que essa disputa existe.</p>
+<p>Se quiser ajuda para colocar isso em prática, conheça o meu serviço de <a href="../servicos/geo-seo-para-ia.html">GEO: SEO para IAs</a>.</p>
+
+          </div>
+
+          <div class="guide-author glass-card">
+            <span class="guide-avatar large" aria-hidden="true">JM</span>
+            <div>
+              <span class="guide-author-label">Escrito por</span>
+              <strong>João Menini</strong>
+              <p>Consultor SEO e fundador da JM Soluções. Ajudo empresas de serviço a serem a resposta quando alguém pesquisa no Google, no Maps ou numa IA.</p>
+              <a href="../index.html#sobre" class="servico-link-cta">Conhecer o João <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr class="section-divider">
+
+    <section class="section-padding section-relative">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag"><span class="dot"></span> Continue lendo</div>
+          <h2 class="section-title text-gradient">
+            Outros guias que podem te ajudar.
+          </h2>
+        </div>
+
+        <div class="guides-grid two reveal-stagger">
+          <a class="glass-card guide-card " href="../guias/google-meu-negocio-guia-para-aparecer-no-maps.html" data-cat="seo-local">
+            <div class="guide-cover cat-seo-local " aria-hidden="true">
+              <span class="guide-cover-word">Maps</span>
+              <span class="guide-cover-brand">Guias JM</span>
+            </div>
+            <div class="guide-card-body">
+              <span class="guide-cat">SEO Local</span>
+              <h3>Google Meu Negócio: o guia prático para aparecer no topo do Maps</h3>
+              <p>O bloco com mapa e três empresas é uma das vitrines que mais geram ligação e mensagem. Veja como o Google escolhe quem aparece ali e o passo a passo para chegar ao topo.</p>
+              <span class="guide-meta"><time datetime="2026-09-15">15 de setembro de 2026</time> · 3 min de leitura</span>
+            </div>
+          </a>
+          <a class="glass-card guide-card " href="../guias/quanto-tempo-seo-demora-para-dar-resultado.html" data-cat="seo">
+            <div class="guide-cover cat-seo " aria-hidden="true">
+              <span class="guide-cover-word">Tempo</span>
+              <span class="guide-cover-brand">Guias JM</span>
+            </div>
+            <div class="guide-card-body">
+              <span class="guide-cat">SEO</span>
+              <h3>Quanto tempo o SEO demora para dar resultado? (resposta honesta)</h3>
+              <p>É a pergunta que eu mais escuto. A resposta curta é “depende”, mas dá para ser bem mais específico. Veja o que esperar de cada fase e como saber se o trabalho está funcionando.</p>
+              <span class="guide-meta"><time datetime="2026-09-08">8 de setembro de 2026</time> · 2 min de leitura</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding section-relative" style="padding-top: 0;">
+      <div class="container">
+        <div class="cta-final-box reveal-scale">
+          <h2 class="cta-final-title text-gradient">Quer um plano para a sua empresa?</h2>
+          <p class="cta-final-subtitle">Faça o diagnóstico em 2 minutos. Eu analiso o seu caso e te respondo pessoalmente no WhatsApp.</p>
+          <button class="btn btn-cyan open-modal-btn" data-service="GEO (SEO para IAs)" style="font-size: 1.05rem; padding: 16px 36px;">Fazer meu diagnóstico <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- [ FOOTER ] -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <img src="../images/logo.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
+          </a>
+          <p>
+            João Menini, consultor SEO. Faço empresas de serviço serem a resposta quando alguém pesquisa no Google, no Maps ou numa IA.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>SERVIÇOS</h4>
+          <ul>
+            <li><a href="../servicos/consultoria-seo.html">Consultoria SEO</a></li>
+            <li><a href="../servicos/auditoria-seo.html">Auditoria de SEO</a></li>
+            <li><a href="../servicos/google-meu-negocio.html">Google Meu Negócio</a></li>
+            <li><a href="../servicos/seo-local.html">SEO Local</a></li>
+            <li><a href="../servicos/criacao-de-sites.html">Criação de Sites</a></li>
+            <li><a href="../servicos/geo-seo-para-ia.html">GEO — SEO para IAs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>PÁGINAS</h4>
+          <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="../index.html#sobre">Quem é João Menini</a></li>
+            <li><a href="../index.html#roadmap">Roadmap</a></li>
+            <li><a href="../resultados.html">Resultados</a></li>
+            <li><a href="../guias/index.html">Guias</a></li>
+            <li><a href="../index.html#faq">Perguntas frequentes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>CONTATO</h4>
+          <ul>
+            <li><a href="#" class="open-modal-btn">Solicitar diagnóstico</a></li>
+            <li><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 JM Soluções · João Menini. Todos os direitos reservados.</div>
+        <div>Feito com o Método MAPA</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating diagnosis CTA -->
+  <button class="diag-float open-modal-btn" aria-label="Solicitar diagnóstico">
+    Solicitar diagnóstico <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- DIAGNÓSTICO MODAL (multi-step → WhatsApp) -->
+  <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="diagTitle">
+    <div class="modal-content diag-modal">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
+
+      <div class="diag-head">
+        <span class="diag-kicker">Diagnóstico gratuito · 2 minutos</span>
+        <h3 class="modal-title text-gradient" id="diagTitle">Me conta sobre a sua empresa.</h3>
+        <p class="modal-desc">São 4 passos rápidos. No final, suas respostas vão direto para o meu WhatsApp e eu te respondo pessoalmente.</p>
+        <div class="diag-progress"><span class="diag-progress-bar" id="diagProgress"></span></div>
+        <div class="diag-step-label" id="diagStepLabel">Etapa 1 de 4</div>
+      </div>
+
+      <form id="leadForm" novalidate>
+        <fieldset class="diag-step active">
+          <legend>Sua empresa</legend>
+          <p class="diag-hint">Para eu saber com quem estou falando.</p>
+          <div class="form-group">
+            <label for="diagEmpresa">Nome da empresa</label>
+            <input type="text" id="diagEmpresa" name="empresa" class="form-control" placeholder="Ex: Clínica Sorriso" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="diagSegmento">Segmento</label>
+              <input type="text" id="diagSegmento" name="segmento" class="form-control" placeholder="Ex: Odontologia" required>
+            </div>
+            <div class="form-group">
+              <label for="diagCidade">Cidade e estado</label>
+              <input type="text" id="diagCidade" name="cidade" class="form-control" placeholder="Ex: Rio de Janeiro, RJ" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="diag-step">
+          <legend>O que você quer resolver?</legend>
+          <p class="diag-hint">Não precisa ter certeza. Na dúvida, escolha “Ainda não sei”.</p>
+          <div class="form-group">
+            <label for="diagService">Serviço de interesse</label>
+            <select id="diagService" name="servico" class="form-control" required><option value="" disabled selected>Selecione uma opção</option><option value="Consultoria SEO">Consultoria SEO</option><option value="Auditoria de SEO">Auditoria de SEO</option><option value="Google Meu Negócio">Google Meu Negócio</option><option value="SEO Local">SEO Local</option><option value="Criação de Sites">Criação de Sites</option><option value="GEO (SEO para IAs)">GEO (SEO para IAs)</option><option value="Ainda não sei">Ainda não sei</option></select>
+          </div>
+          <div class="form-group">
+            <label for="diagObjetivo">Principal objetivo</label>
+            <select id="diagObjetivo" name="objetivo" class="form-control" required><option value="" disabled selected>Selecione uma opção</option><option value="Gerar mais contatos e clientes">Gerar mais contatos e clientes</option><option value="Aparecer no Google">Aparecer no Google</option><option value="Aparecer no Google Maps">Aparecer no Google Maps</option><option value="Ser recomendado pelas IAs">Ser recomendado pelas IAs</option><option value="Melhorar o site atual">Melhorar o site atual</option><option value="Criar um site novo">Criar um site novo</option></select>
+          </div>
+        </fieldset>
+
+        <fieldset class="diag-step">
+          <legend>Onde você está hoje</legend>
+          <p class="diag-hint">Isso me ajuda a chegar na conversa já com algumas ideias.</p>
+          <div class="form-group">
+            <label for="diagSite">URL do site (se houver)</label>
+            <input type="text" id="diagSite" name="site" class="form-control" placeholder="www.suaempresa.com.br">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="diagInvest">Investimento previsto</label>
+              <select id="diagInvest" name="investimento" class="form-control" required><option value="" disabled selected>Selecione</option><option value="Ainda estou avaliando">Ainda estou avaliando</option><option value="Até R$ 1.500/mês">Até R$ 1.500/mês</option><option value="R$ 1.500 a R$ 3.000/mês">R$ 1.500 a R$ 3.000/mês</option><option value="Acima de R$ 3.000/mês">Acima de R$ 3.000/mês</option></select>
+            </div>
+            <div class="form-group">
+              <label for="diagJaInveste">Já investe em SEO?</label>
+              <select id="diagJaInveste" name="investe_seo" class="form-control" required><option value="" disabled selected>Selecione</option><option value="Sim, com agência ou profissional">Sim, com agência ou profissional</option><option value="Sim, faço por conta própria">Sim, faço por conta própria</option><option value="Não, ainda não invisto">Não, ainda não invisto</option></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="diagContexto">Contexto adicional (opcional)</label>
+            <textarea id="diagContexto" name="contexto" class="form-control" rows="3" placeholder="Conte o que está acontecendo hoje, concorrentes, metas..."></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="diag-step">
+          <legend>Para onde eu te respondo?</legend>
+          <p class="diag-hint">Uso seus dados só para responder você. Nada de lista de e-mail.</p>
+          <div class="form-group">
+            <label for="diagNome">Seu nome</label>
+            <input type="text" id="diagNome" name="nome" class="form-control" placeholder="Ex: Rodrigo Silva" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="diagWhats">WhatsApp</label>
+              <input type="tel" id="diagWhats" name="whatsapp" class="form-control" placeholder="(00) 90000-0000" required autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label for="diagEmail">E-mail (opcional)</label>
+              <input type="email" id="diagEmail" name="email" class="form-control" placeholder="voce@empresa.com" autocomplete="email">
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="diag-nav">
+          <button type="button" class="btn btn-secondary" id="diagBack" hidden>Voltar</button>
+          <button type="button" class="btn btn-primary" id="diagNext">Continuar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          <button type="submit" class="btn btn-cyan" id="diagSubmit" hidden>Enviar diagnóstico <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+        <p class="diag-privacy">Quem responde é o próprio João Menini.</p>
+      </form>
+
+      <div class="diag-success" id="diagSuccess" role="status">
+        <div class="diag-success-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Pronto! Agora é só enviar.</h3>
+        <p>Abri o WhatsApp com as suas respostas. É só apertar enviar. Se a janela não abriu, use o botão abaixo.</p>
+        <a href="#" class="btn btn-cyan" id="diagWhatsLink" target="_blank" rel="noopener">Abrir WhatsApp <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROOF IMAGE LIGHTBOX MODAL -->
+  <div class="proof-lightbox" id="proofLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Visualização do print ampliado">
+    <div class="proof-lightbox-backdrop" id="proofLightboxBackdrop"></div>
+    <div class="proof-lightbox-container">
+      <button class="proof-lightbox-close" id="proofLightboxClose" aria-label="Fechar visualização">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="proof-lightbox-body">
+        <img alt="" class="proof-lightbox-img" id="proofLightboxImg">
+        <div class="proof-lightbox-caption" id="proofLightboxCaption"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript App Logic -->
+  <script src="../app.js"></script>
+</body>
+</html>

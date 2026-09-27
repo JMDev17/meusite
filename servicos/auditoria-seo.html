@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auditoria de SEO completa para o seu site | João Menini</title>
+  <meta name="description" content="Auditoria de SEO técnica e estratégica: indexação, velocidade, conteúdo, SEO local e conversão, com um plano de prioridades claro para corrigir o que importa.">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Auditoria de SEO completa para o seu site | João Menini">
+  <meta property="og:description" content="Auditoria de SEO técnica e estratégica: indexação, velocidade, conteúdo, SEO local e conversão, com um plano de prioridades claro para corrigir o que importa.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Favicon & Stylesheet -->
+  <link rel="icon" type="image/avif" href="../images/favicon.avif">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Auditoria de SEO", "description": "Auditoria de SEO técnica e estratégica: indexação, velocidade, conteúdo, SEO local e conversão, com um plano de prioridades claro para corrigir o que importa.", "provider": {"@type": "ProfessionalService", "name": "JM Soluções", "founder": {"@type": "Person", "name": "João Menini"}}, "areaServed": "BR"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanto tempo leva uma auditoria?", "acceptedAnswer": {"@type": "Answer", "text": "Em média de 7 a 15 dias, dependendo do tamanho do site e da quantidade de dados disponíveis."}}, {"@type": "Question", "name": "Preciso dar acesso ao meu site?", "acceptedAnswer": {"@type": "Answer", "text": "O ideal é ter acesso ao Google Search Console e ao Analytics. Não é necessário acesso ao painel do site para a análise."}}, {"@type": "Question", "name": "Você também executa as correções?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Depois da auditoria, você pode executar com sua equipe ou contratar a implementação junto com a consultoria."}}, {"@type": "Question", "name": "Serve para site novo?", "acceptedAnswer": {"@type": "Answer", "text": "Serve. Em sites novos a auditoria garante que a base técnica está correta antes de investir em conteúdo."}}]}</script>
+</head>
+<body>
+
+  <!-- Background Ambient Glow Spotlights -->
+  <div class="ambient-glow-container">
+    <div class="glow-orb glow-orb-indigo"></div>
+    <div class="glow-orb glow-orb-cyan"></div>
+    <div class="glow-orb glow-orb-violet"></div>
+  </div>
+
+  <!-- [ HEADER / NAVBAR ] -->
+  <header>
+    <nav class="navbar" id="navbar" aria-label="Navegação principal">
+      <a href="../index.html" class="logo">
+        <img src="../images/logo.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="../index.html#sobre">Sobre</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-toggle active" aria-expanded="false" aria-haspopup="true">Serviços <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="nav-dropdown-menu">
+            <a href="../servicos/consultoria-seo.html">Consultoria SEO</a>
+            <a href="../servicos/auditoria-seo.html" class="active">Auditoria de SEO</a>
+            <a href="../servicos/google-meu-negocio.html">Google Meu Negócio</a>
+            <a href="../servicos/seo-local.html">SEO Local</a>
+            <a href="../servicos/criacao-de-sites.html">Criação de Sites</a>
+            <a href="../servicos/geo-seo-para-ia.html">GEO — SEO para IAs</a>
+          </div>
+        </li>
+        <li><a href="../index.html#roadmap">Roadmap</a></li>
+        <li><a href="../index.html#ia">SEO + IA</a></li>
+        <li><a href="../resultados.html">Resultados</a></li>
+        <li><a href="../guias/index.html">Guias</a></li>
+        <li><a href="../index.html#faq">FAQ</a></li>
+      </ul>
+
+      <button class="btn btn-primary open-modal-btn">
+        Solicitar diagnóstico
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Fechar menu">&times;</button>
+      <a href="../index.html" class="mobile-nav-link">Início</a>
+      <a href="../index.html#sobre" class="mobile-nav-link">Sobre</a>
+      <div class="mobile-drawer-group">
+        <span class="mobile-drawer-label">Serviços</span>
+        <a href="../servicos/consultoria-seo.html" class="mobile-nav-link">Consultoria SEO</a>
+        <a href="../servicos/auditoria-seo.html" class="mobile-nav-link">Auditoria de SEO</a>
+        <a href="../servicos/google-meu-negocio.html" class="mobile-nav-link">Google Meu Negócio</a>
+        <a href="../servicos/seo-local.html" class="mobile-nav-link">SEO Local</a>
+        <a href="../servicos/criacao-de-sites.html" class="mobile-nav-link">Criação de Sites</a>
+        <a href="../servicos/geo-seo-para-ia.html" class="mobile-nav-link">GEO — SEO para IAs</a>
+      </div>
+      <a href="../index.html#roadmap" class="mobile-nav-link">Roadmap</a>
+      <a href="../index.html#ia" class="mobile-nav-link">SEO + IA</a>
+      <a href="../resultados.html" class="mobile-nav-link">Resultados</a>
+      <a href="../guias/index.html" class="mobile-nav-link">Guias</a>
+      <a href="../index.html#faq" class="mobile-nav-link">FAQ</a>
+      <button class="btn btn-primary open-modal-btn" style="margin-top: 12px;">Solicitar diagnóstico</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- [ PAGE HERO ] -->
+    <section class="page-hero section-relative">
+      <div class="container">
+        <nav aria-label="Você está em">
+          <ol class="breadcrumb">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="../index.html#servicos">Serviços</a></li>
+            <li aria-current="page">Auditoria de SEO</li>
+          </ol>
+        </nav>
+        <div class="hero-kicker"><span class="pulse"></span> Auditoria de SEO</div>
+        <h1 class="page-title text-gradient">Auditoria de SEO para descobrir o que está travando o seu site.</h1>
+        <p class="page-lead">Um raio-x técnico e estratégico do seu site, com os problemas que impedem você de aparecer no Google e um plano de prioridades para resolver cada um deles.</p>
+        <div class="btn-row">
+          <button class="btn btn-cyan open-modal-btn" data-service="Auditoria de SEO">Solicitar diagnóstico <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          <a href="../resultados.html" class="btn btn-secondary">Ver resultados</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- [ O QUE É ] -->
+    <section class="section-padding section-relative" style="padding-top: 20px;">
+      <div class="container" style="max-width: 900px;">
+        <div class="glass-card summary-box reveal">
+          <div class="section-tag"><span class="dot"></span> Em poucas palavras</div>
+          <h2>O que é uma auditoria de SEO?</h2>
+            <p>É uma análise profunda do site que revela problemas de indexação, performance, conteúdo, estrutura e conversão, tudo aquilo que faz o Google ignorar suas páginas ou colocá-las atrás dos concorrentes.</p>
+            <p>Diferente de um relatório automático, cada ponto vem com contexto: o que é, por que importa e o que fazer primeiro.</p>
+            <p class="summary-highlight"><strong>Ideal para:</strong> sites que não aparecem no Google, que perderam tráfego, que vão passar por um redesign ou empresas que querem saber exatamente onde investir antes de começar.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- [ COMO FUNCIONA ] -->
+    <section class="section-padding section-relative">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag"><span class="dot"></span> Como funciona</div>
+          <h2 class="section-title text-gradient">
+            Do rastreamento ao plano de ação, em quatro passos.
+          </h2>
+        </div>
+
+        <div class="process-grid reveal-stagger">
+          <div class="glass-card process-card">
+            <div class="process-number">01</div>
+            <h3 class="process-title">COLETA DE DADOS</h3>
+            <p class="process-desc">Rastreamento completo do site e leitura do Search Console, Analytics e ferramentas de performance.</p>
+          </div>
+          <div class="glass-card process-card">
+            <div class="process-number">02</div>
+            <h3 class="process-title">ANÁLISE TÉCNICA</h3>
+            <p class="process-desc">Indexação, erros de rastreamento, redirecionamentos, velocidade, mobile e dados estruturados.</p>
+          </div>
+          <div class="glass-card process-card">
+            <div class="process-number">03</div>
+            <h3 class="process-title">ANÁLISE ESTRATÉGICA</h3>
+            <p class="process-desc">Conteúdo, palavras-chave, intenção de busca, concorrência e caminhos de conversão.</p>
+          </div>
+          <div class="glass-card process-card">
+            <div class="process-number">04</div>
+            <h3 class="process-title">PLANO DE AÇÃO</h3>
+            <p class="process-desc">Relatório com prioridades por impacto e esforço, pronto para sua equipe ou para mim executar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [ LISTAS ] -->
+    <section class="section-padding section-relative" style="padding-top: 0;">
+      <div class="container">
+        <div class="info-grid reveal-stagger">
+          <div class="glass-card info-card">
+            <h3>Pontos verificados</h3>
+            <ul class="check-list">
+              <li>Páginas indexadas, bloqueadas ou duplicadas.</li>
+              <li>Velocidade de carregamento e Core Web Vitals.</li>
+              <li>Estrutura de títulos, metadados e links internos.</li>
+              <li>Conteúdo fraco, canibalização e páginas sem intenção clara.</li>
+              <li>Presença local, dados estruturados e sinais de confiança.</li>
+            </ul>
+          </div>
+          <div class="glass-card info-card">
+            <h3>Entregáveis</h3>
+            <ul class="check-list">
+              <li>Relatório detalhado com prints e explicações simples.</li>
+              <li>Lista de correções priorizada por impacto.</li>
+              <li>Oportunidades de palavras-chave que você ainda não explora.</li>
+              <li>Reunião de apresentação para tirar todas as dúvidas.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [ CTA INLINE ] -->
+    <section class="section-relative" style="padding-bottom: 90px;">
+      <div class="container">
+        <div class="cta-inline reveal">
+          <div>
+            <h3>Não sabe por onde começar?</h3>
+            <p>Me conta sobre sua empresa. Eu te mostro o que mais pesa hoje no seu resultado e o que dá para resolver primeiro.</p>
+          </div>
+          <button class="btn btn-cyan open-modal-btn" data-service="Auditoria de SEO">Solicitar diagnóstico <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- [ FAQ ] -->
+    <section class="section-padding section-relative" id="faq-servico">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag"><span class="dot"></span> Perguntas frequentes</div>
+          <h2 class="section-title text-gradient">
+            O que costumam me perguntar sobre isso.
+          </h2>
+        </div>
+
+        <div class="faq-container reveal-stagger">
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span class="faq-question">Quanto tempo leva uma auditoria?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <p class="faq-answer">
+                Em média de 7 a 15 dias, dependendo do tamanho do site e da quantidade de dados disponíveis.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span class="faq-question">Preciso dar acesso ao meu site?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <p class="faq-answer">
+                O ideal é ter acesso ao Google Search Console e ao Analytics. Não é necessário acesso ao painel do site para a análise.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span class="faq-question">Você também executa as correções?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <p class="faq-answer">
+                Sim. Depois da auditoria, você pode executar com sua equipe ou contratar a implementação junto com a consultoria.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span class="faq-question">Serve para site novo?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <p class="faq-answer">
+                Serve. Em sites novos a auditoria garante que a base técnica está correta antes de investir em conteúdo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- [ RELACIONADOS ] -->
+    <section class="section-padding section-relative">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag"><span class="dot"></span> Combina com</div>
+          <h2 class="section-title text-gradient">
+            Serviços que potencializam este.
+          </h2>
+        </div>
+
+        <div class="servicos-grid six reveal-stagger">
+          <a class="glass-card servico-link" href="../servicos/consultoria-seo.html">
+            <span class="servico-link-num">01</span>
+            <h3>Consultoria SEO</h3>
+            <p>Plano estratégico sob medida para seu site ganhar posições, tráfego qualificado e contatos vindos do Google.</p>
+            <span class="servico-link-cta">Conhecer a consultoria <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+          <a class="glass-card servico-link" href="../servicos/criacao-de-sites.html">
+            <span class="servico-link-num">02</span>
+            <h3>Criação de Sites</h3>
+            <p>Sites rápidos, bonitos e construídos com SEO desde a primeira linha para gerar confiança e contatos.</p>
+            <span class="servico-link-cta">Quero um site <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+          <a class="glass-card servico-link" href="../servicos/seo-local.html">
+            <span class="servico-link-num">03</span>
+            <h3>SEO Local</h3>
+            <p>Estratégia para dominar as buscas da sua cidade e bairros, unindo site, Google Maps e avaliações.</p>
+            <span class="servico-link-cta">Ver SEO local <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- [ CTA FINAL ] -->
+    <section class="section-padding section-relative" style="padding-top: 0;">
+      <div class="container">
+        <div class="cta-final-box reveal-scale">
+          <h2 class="cta-final-title text-gradient">Pronto para ser a primeira opção de quem pesquisa?</h2>
+          <p class="cta-final-subtitle">Faça o diagnóstico em 2 minutos. Eu analiso o seu caso e te respondo pessoalmente no WhatsApp.</p>
+          <button class="btn btn-cyan open-modal-btn" data-service="Auditoria de SEO" style="font-size: 1.05rem; padding: 16px 36px;">Solicitar diagnóstico <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- [ FOOTER ] -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <img src="../images/logo.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
+          </a>
+          <p>
+            João Menini, consultor SEO. Faço empresas de serviço serem a resposta quando alguém pesquisa no Google, no Maps ou numa IA.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>SERVIÇOS</h4>
+          <ul>
+            <li><a href="../servicos/consultoria-seo.html">Consultoria SEO</a></li>
+            <li><a href="../servicos/auditoria-seo.html">Auditoria de SEO</a></li>
+            <li><a href="../servicos/google-meu-negocio.html">Google Meu Negócio</a></li>
+            <li><a href="../servicos/seo-local.html">SEO Local</a></li>
+            <li><a href="../servicos/criacao-de-sites.html">Criação de Sites</a></li>
+            <li><a href="../servicos/geo-seo-para-ia.html">GEO — SEO para IAs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>PÁGINAS</h4>
+          <ul>
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="../index.html#sobre">Quem é João Menini</a></li>
+            <li><a href="../index.html#roadmap">Roadmap</a></li>
+            <li><a href="../resultados.html">Resultados</a></li>
+            <li><a href="../guias/index.html">Guias</a></li>
+            <li><a href="../index.html#faq">Perguntas frequentes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>CONTATO</h4>
+          <ul>
+            <li><a href="#" class="open-modal-btn">Solicitar diagnóstico</a></li>
+            <li><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 JM Soluções · João Menini. Todos os direitos reservados.</div>
+        <div>Feito com o Método MAPA</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating diagnosis CTA -->
+  <button class="diag-float open-modal-btn" aria-label="Solicitar diagnóstico">
+    Solicitar diagnóstico <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- DIAGNÓSTICO MODAL (multi-step → WhatsApp) -->
+  <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="diagTitle">
+    <div class="modal-content diag-modal">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
+
+      <div class="diag-head">
+        <span class="diag-kicker">Diagnóstico gratuito · 2 minutos</span>
+        <h3 class="modal-title text-gradient" id="diagTitle">Me conta sobre a sua empresa.</h3>
+        <p class="modal-desc">São 4 passos rápidos. No final, suas respostas vão direto para o meu WhatsApp e eu te respondo pessoalmente.</p>
+        <div class="diag-progress"><span class="diag-progress-bar" id="diagProgress"></span></div>
+        <div class="diag-step-label" id="diagStepLabel">Etapa 1 de 4</div>
+      </div>
+
+      <form id="leadForm" novalidate>
+        <fieldset class="diag-step active">
+          <legend>Sua empresa</legend>
+          <p class="diag-hint">Para eu saber com quem estou falando.</p>
+          <div class="form-group">
+            <label for="diagEmpresa">Nome da empresa</label>
+            <input type="text" id="diagEmpresa" name="empresa" class="form-control" placeholder="Ex: Clínica Sorriso" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="diagSegmento">Segmento</label>
+              <input type="text" id="diagSegmento" name="segmento" class="form-control" placeholder="Ex: Odontologia" required>
+            </div>
+            <div class="form-group">
+              <label for="diagCidade">Cidade e estado</label>
+              <input type="text" id="diagCidade" name="cidade" class="form-control" placeholder="Ex: Rio de Janeiro, RJ" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="diag-step">
+          <legend>O que você quer resolver?</legend>
+          <p class="diag-hint">Não precisa ter certeza. Na dúvida, escolha “Ainda não sei”.</p>
+          <div class="form-group">
+            <label for="diagService">Serviço de interesse</label>
+            <select id="diagService" name="servico" class="form-control" required><option value="" disabled selected>Selecione uma opção</option><option value="Consultoria SEO">Consultoria SEO</option><option value="Auditoria de SEO">Auditoria de SEO</option><option value="Google Meu Negócio">Google Meu Negócio</option><option value="SEO Local">SEO Local</option><option value="Criação de Sites">Criação de Sites</option><option value="GEO (SEO para IAs)">GEO (SEO para IAs)</option><option value="Ainda não sei">Ainda não sei</option></select>
+          </div>
+          <div class="form-group">
+            <label for="diagObjetivo">Principal objetivo</label>
+            <select id="diagObjetivo" name="objetivo" class="form-control" required><option value="" disabled selected>Selecione uma opção</option><option value="Gerar mais contatos e clientes">Gerar mais contatos e clientes</option><option value="Aparecer no Google">Aparecer no Google</option><option value="Aparecer no Google Maps">Aparecer no Google Maps</option><option value="Ser recomendado pelas IAs">Ser recomendado pelas IAs</option><option value="Melhorar o site atual">Melhorar o site atual</option><option value="Criar um site novo">Criar um site novo</option></select>
+          </div>
+        </fieldset>
+
+        <fieldset class="diag-step">
+          <legend>Onde você está hoje</legend>
+          <p class="diag-hint">Isso me ajuda a chegar na conversa já com algumas ideias.</p>
+          <div class="form-group">
+            <label for="diagSite">URL do site (se houver)</label>
+            <input type="text" id="diagSite" name="site" class="form-control" placeholder="www.suaempresa.com.br">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="diagInvest">Investimento previsto</label>
+              <select id="diagInvest" name="investimento" class="form-control" required><option value="" disabled selected>Selecione</option><option value="Ainda estou avaliando">Ainda estou avaliando</option><option value="Até R$ 1.500/mês">Até R$ 1.500/mês</option><option value="R$ 1.500 a R$ 3.000/mês">R$ 1.500 a R$ 3.000/mês</option><option value="Acima de R$ 3.000/mês">Acima de R$ 3.000/mês</option></select>
+            </div>
+            <div class="form-group">
+              <label for="diagJaInveste">Já investe em SEO?</label>
+              <select id="diagJaInveste" name="investe_seo" class="form-control" required><option value="" disabled selected>Selecione</option><option value="Sim, com agência ou profissional">Sim, com agência ou profissional</option><option value="Sim, faço por conta própria">Sim, faço por conta própria</option><option value="Não, ainda não invisto">Não, ainda não invisto</option></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="diagContexto">Contexto adicional (opcional)</label>
+            <textarea id="diagContexto" name="contexto" class="form-control" rows="3" placeholder="Conte o que está acontecendo hoje, concorrentes, metas..."></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="diag-step">
+          <legend>Para onde eu te respondo?</legend>
+          <p class="diag-hint">Uso seus dados só para responder você. Nada de lista de e-mail.</p>
+          <div class="form-group">
+            <label for="diagNome">Seu nome</label>
+            <input type="text" id="diagNome" name="nome" class="form-control" placeholder="Ex: Rodrigo Silva" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="diagWhats">WhatsApp</label>
+              <input type="tel" id="diagWhats" name="whatsapp" class="form-control" placeholder="(00) 90000-0000" required autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label for="diagEmail">E-mail (opcional)</label>
+              <input type="email" id="diagEmail" name="email" class="form-control" placeholder="voce@empresa.com" autocomplete="email">
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="diag-nav">
+          <button type="button" class="btn btn-secondary" id="diagBack" hidden>Voltar</button>
+          <button type="button" class="btn btn-primary" id="diagNext">Continuar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          <button type="submit" class="btn btn-cyan" id="diagSubmit" hidden>Enviar diagnóstico <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+        <p class="diag-privacy">Quem responde é o próprio João Menini.</p>
+      </form>
+
+      <div class="diag-success" id="diagSuccess" role="status">
+        <div class="diag-success-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Pronto! Agora é só enviar.</h3>
+        <p>Abri o WhatsApp com as suas respostas. É só apertar enviar. Se a janela não abriu, use o botão abaixo.</p>
+        <a href="#" class="btn btn-cyan" id="diagWhatsLink" target="_blank" rel="noopener">Abrir WhatsApp <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROOF IMAGE LIGHTBOX MODAL -->
+  <div class="proof-lightbox" id="proofLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Visualização do print ampliado">
+    <div class="proof-lightbox-backdrop" id="proofLightboxBackdrop"></div>
+    <div class="proof-lightbox-container">
+      <button class="proof-lightbox-close" id="proofLightboxClose" aria-label="Fechar visualização">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="proof-lightbox-body">
+        <img alt="" class="proof-lightbox-img" id="proofLightboxImg">
+        <div class="proof-lightbox-caption" id="proofLightboxCaption"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript App Logic -->
+  <script src="../app.js"></script>
+</body>
+</html>

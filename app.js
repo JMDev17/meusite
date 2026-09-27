@@ -2,6 +2,9 @@
    JM SOLUÇÕES — INTERACTIVE APP LOGIC & DELUCKS EFFECTS
    ========================================================================== */
 
+// WhatsApp que recebe os diagnósticos (DDI + DDD + número, só dígitos)
+const WHATSAPP_NUMBER = '5500000000000';
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // 1. Delucks Card Spotlight Cursor Tracking
@@ -48,6 +51,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 3.1 Services Dropdown (click/keyboard; hover is handled in CSS)
+  const navDropdown = document.querySelector('.nav-dropdown');
+  if (navDropdown) {
+    const dropdownToggle = navDropdown.querySelector('.nav-dropdown-toggle');
+    dropdownToggle.addEventListener('click', () => {
+      const isOpen = navDropdown.classList.toggle('open');
+      dropdownToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.addEventListener('click', (e) => {
+      if (!navDropdown.contains(e.target)) {
+        navDropdown.classList.remove('open');
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   // 4. Interactive FAQ Accordions
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
@@ -56,37 +75,232 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = item.classList.contains('open');
 
       // Close all other items
-      faqItems.forEach(i => i.classList.remove('open'));
+      faqItems.forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-header').setAttribute('aria-expanded', 'false');
+      });
 
       if (!isOpen) {
         item.classList.add('open');
+        header.setAttribute('aria-expanded', 'true');
       }
     });
   });
 
-  // 5. Lead Diagnosis Modal Controls
+  // 5. Diagnosis Modal Controls
   const modal = document.getElementById('contactModal');
   const openModalBtns = document.querySelectorAll('.open-modal-btn');
   const modalClose = document.getElementById('modalClose');
 
+  const openModal = (service) => {
+    resetDiagnosis();
+    if (service) {
+      const serviceSelect = document.getElementById('diagService');
+      if (serviceSelect) serviceSelect.value = service;
+    }
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (mobileDrawer) mobileDrawer.classList.remove('open');
+    const firstField = modal.querySelector('.diag-step.active .form-control');
+    if (firstField) setTimeout(() => firstField.focus(), 150);
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
   openModalBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      modal.classList.add('open');
+      openModal(btn.dataset.service);
     });
   });
 
   if (modalClose) {
-    modalClose.addEventListener('click', () => {
-      modal.classList.remove('open');
-    });
+    modalClose.addEventListener('click', closeModal);
   }
 
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
-      modal.classList.remove('open');
+      closeModal();
     }
   });
+
+  // 5.1 Multi-step diagnosis form → WhatsApp
+  const diagForm = document.getElementById('leadForm');
+  const diagSteps = diagForm ? Array.from(diagForm.querySelectorAll('.diag-step')) : [];
+  const diagBack = document.getElementById('diagBack');
+  const diagNext = document.getElementById('diagNext');
+  const diagSubmit = document.getElementById('diagSubmit');
+  const diagProgress = document.getElementById('diagProgress');
+  const diagStepLabel = document.getElementById('diagStepLabel');
+  const diagSuccess = document.getElementById('diagSuccess');
+  let diagCurrent = 0;
+
+  function showDiagStep(index) {
+    diagCurrent = index;
+    diagSteps.forEach((step, i) => step.classList.toggle('active', i === index));
+    diagBack.hidden = index === 0;
+    diagNext.hidden = index === diagSteps.length - 1;
+    diagSubmit.hidden = index !== diagSteps.length - 1;
+    diagProgress.style.width = `${((index + 1) / diagSteps.length) * 100}%`;
+    diagStepLabel.textContent = `Etapa ${index + 1} de ${diagSteps.length}`;
+  }
+
+  function validateDiagStep() {
+    const fields = Array.from(diagSteps[diagCurrent].querySelectorAll('.form-control'));
+    fields.forEach(f => f.classList.add('touched'));
+    const invalid = fields.find(f => !f.checkValidity());
+    if (invalid) {
+      invalid.reportValidity();
+      return false;
+    }
+    return true;
+  }
+
+  function resetDiagnosis() {
+    if (!diagForm) return;
+    diagForm.reset();
+    diagForm.hidden = false;
+    diagForm.querySelectorAll('.touched').forEach(f => f.classList.remove('touched'));
+    diagSuccess.classList.remove('show');
+    document.querySelector('.diag-head').hidden = false;
+    showDiagStep(0);
+  }
+
+  if (diagForm) {
+    diagNext.addEventListener('click', () => {
+      if (validateDiagStep()) showDiagStep(diagCurrent + 1);
+    });
+
+    diagBack.addEventListener('click', () => showDiagStep(diagCurrent - 1));
+
+    // Enter on an intermediate step advances instead of submitting
+    diagForm.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && diagCurrent < diagSteps.length - 1) {
+        e.preventDefault();
+        diagNext.click();
+      }
+    });
+
+    diagForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!validateDiagStep()) return;
+
+      const data = new FormData(diagForm);
+      const lines = [
+        'Olá, João! Quero solicitar um diagnóstico.',
+        '',
+        `*Empresa:* ${data.get('empresa')}`,
+        `*Segmento:* ${data.get('segmento')}`,
+        `*Cidade/UF:* ${data.get('cidade')}`,
+        `*Serviço de interesse:* ${data.get('servico')}`,
+        `*Objetivo:* ${data.get('objetivo')}`,
+        `*Site:* ${data.get('site') || 'Não tenho site'}`,
+        `*Investimento previsto:* ${data.get('investimento')}`,
+        `*Já investe em SEO:* ${data.get('investe_seo')}`
+      ];
+      if (data.get('contexto')) lines.push(`*Contexto:* ${data.get('contexto')}`);
+      lines.push('', `*Nome:* ${data.get('nome')}`, `*WhatsApp:* ${data.get('whatsapp')}`);
+      if (data.get('email')) lines.push(`*E-mail:* ${data.get('email')}`);
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.open(url, '_blank', 'noopener');
+
+      diagForm.hidden = true;
+      document.querySelector('.diag-head').hidden = true;
+      document.getElementById('diagWhatsLink').href = url;
+      diagSuccess.classList.add('show');
+    });
+
+    showDiagStep(0);
+  }
+
+  // 5.3 Category filter chips (Guias listing and Resultados cases).
+  // Each chip group filters the [data-cat] cards inside its own section.
+  document.querySelectorAll('.guide-chips').forEach(group => {
+    const section = group.closest('section');
+    const chips = group.querySelectorAll('.guide-chip');
+    const cards = section.querySelectorAll('.guides-grid [data-cat], .cases-grid.filterable [data-cat]');
+    const emptyMsg = section.querySelector('.guides-empty');
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.toggle('active', c === chip));
+        const filter = chip.dataset.filter;
+        let visible = 0;
+        cards.forEach(card => {
+          const show = filter === 'all' || card.dataset.cat === filter;
+          card.hidden = !show;
+          if (show) visible++;
+        });
+        if (emptyMsg) emptyMsg.hidden = visible > 0;
+      });
+    });
+  });
+
+  // 5.5 WhatsApp-style voice note players (testimonials)
+  const voiceNotes = document.querySelectorAll('[data-voice]');
+  const fmtTime = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+  voiceNotes.forEach(note => {
+    const audio = note.querySelector('audio');
+    const btn = note.querySelector('.voice-play');
+    const wave = note.querySelector('.voice-wave');
+    const bars = wave.querySelectorAll('span');
+    const time = note.querySelector('.voice-time');
+    const total = time.textContent;
+
+    const paint = () => {
+      const k = audio.duration ? audio.currentTime / audio.duration : 0;
+      const n = Math.round(k * bars.length);
+      bars.forEach((b, i) => b.classList.toggle('played', i < n));
+      time.textContent = audio.currentTime > 0 ? fmtTime(audio.currentTime) : total;
+    };
+
+    btn.addEventListener('click', () => {
+      if (audio.paused) {
+        // only one testimonial plays at a time
+        document.querySelectorAll('[data-voice] audio').forEach(a => { if (a !== audio) a.pause(); });
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    });
+    audio.addEventListener('play', () => note.classList.add('playing'));
+    audio.addEventListener('pause', () => note.classList.remove('playing'));
+    audio.addEventListener('timeupdate', paint);
+    audio.addEventListener('ended', () => { audio.currentTime = 0; paint(); });
+    wave.addEventListener('click', (e) => {
+      if (!audio.duration) return;
+      const r = wave.getBoundingClientRect();
+      audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      paint();
+    });
+  });
+
+  // 5.4 Guias: highlight the table-of-contents entry for the section being read
+  const tocLinks = document.querySelectorAll('.guide-toc a');
+  if (tocLinks.length) {
+    // getElementById: heading ids may start with a digit, which querySelector rejects
+    const headings = Array.from(tocLinks).map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+    const markToc = () => {
+      let current = headings[0];
+      headings.forEach(h => {
+        if (h.getBoundingClientRect().top < 140) current = h;
+      });
+      tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${current.id}`));
+    };
+    window.addEventListener('scroll', markToc, { passive: true });
+    markToc();
+  }
+
+  // 5.2 Floating diagnosis button appears after the hero
+  const diagFloat = document.querySelector('.diag-float');
+  if (diagFloat) {
+    const toggleFloat = () => diagFloat.classList.toggle('show', window.scrollY > 500);
+    window.addEventListener('scroll', toggleFloat, { passive: true });
+    toggleFloat();
+  }
 
   // 8.1 Proof Image Lightbox Modal Controls
   const proofLightbox = document.getElementById('proofLightbox');
@@ -153,7 +367,10 @@ document.addEventListener('DOMContentLoaded', () => {
         closeProofLightbox();
       }
       if (modal && modal.classList.contains('open')) {
-        modal.classList.remove('open');
+        closeModal();
+      }
+      if (navDropdown) {
+        navDropdown.classList.remove('open');
       }
     }
   });
@@ -231,19 +448,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
-
-// Form Submission Handler
-function handleFormSubmit(event) {
-  event.preventDefault();
-  const name = document.getElementById('leadName').value;
-  const company = document.getElementById('leadCompany').value;
-
-  alert(`Obrigado, ${name}! Recebemos a solicitação de análise para a ${company}. Nossa equipe de especialistas entrará em contato em breve.`);
-
-  const modal = document.getElementById('contactModal');
-  if (modal) {
-    modal.classList.remove('open');
-  }
-
-  document.getElementById('leadForm').reset();
-}

@@ -1,0 +1,16 @@
+# Materiais de origem e mídia de divulgação (ficam só no computador)
+/RESULTADOS/
+/preview/
+/logo/
+/favicon/
+
+# Originais já convertidos para AVIF
+fotos/*.png
+fotos/*.jpeg
+fotos/*.jpg
+images/*.png
+!images/favicon.png
+
+# Imagens antigas que o site não usa mais
+fotos/search-console.avif
+images/project-*-mockup.avif
