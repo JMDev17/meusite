@@ -20,19 +20,35 @@ function whatsappGreeting() {
   return `Olá, João! Vim pelo site, ${origin}${interest}`;
 }
 
+// Below-the-fold sections use content-visibility (skipped until needed) to speed up the
+// first render. Before any jump to an anchor, render them for real so the jump is exact.
+const renderAllSections = () => document.documentElement.classList.add('cv-off');
+if (location.hash) renderAllSections();
+window.addEventListener('load', () => {
+  if (!location.hash) return;
+  const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (target) target.scrollIntoView();
+});
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href*="#"]');
+  if (link && link.pathname === location.pathname && link.hash) renderAllSections();
+}, true);
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // 1. Delucks Card Spotlight Cursor Tracking
-  const cards = document.querySelectorAll('.glass-card');
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
+  if (window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.glass-card').forEach(card => {
+      let rect = null;
+      card.addEventListener('mouseenter', () => { rect = card.getBoundingClientRect(); });
+      card.addEventListener('mouseleave', () => { rect = null; });
+      card.addEventListener('mousemove', (e) => {
+        if (!rect) rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
     });
-  });
+  }
 
   // 2. Navbar Glass Blur Scroll Effect
   const navbar = document.getElementById('navbar');
@@ -42,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       navbar.classList.remove('scrolled');
     }
-  });
+  }, { passive: true });
 
   // 3. Mobile Drawer Controls
   const mobileToggle = document.getElementById('mobileToggle');
@@ -309,15 +325,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tocLinks.length) {
     // getElementById: heading ids may start with a digit, which querySelector rejects
     const headings = Array.from(tocLinks).map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
-    const markToc = () => {
-      let current = headings[0];
-      headings.forEach(h => {
-        if (h.getBoundingClientRect().top < 140) current = h;
-      });
-      tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${current.id}`));
-    };
-    window.addEventListener('scroll', markToc, { passive: true });
-    markToc();
+    const markToc = (id) => tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+    const tocObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) markToc(entry.target.id); });
+    }, { rootMargin: '-100px 0px -70% 0px' });
+    headings.forEach(h => tocObserver.observe(h));
+    if (headings[0]) markToc(headings[0].id);
   }
 
   // 5.6 Direct WhatsApp links get the contextual greeting
@@ -328,9 +341,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5.2 Floating diagnosis button appears after the hero
   const diagFloat = document.querySelector('.diag-float');
   if (diagFloat) {
-    const toggleFloat = () => diagFloat.classList.toggle('show', window.scrollY > 500);
-    window.addEventListener('scroll', toggleFloat, { passive: true });
-    toggleFloat();
+    // Show it once the hero leaves the screen. An observer avoids reading scrollY at
+    // startup, which forced a full-page layout inside this script.
+    const heroEl = document.querySelector('.hero-section, .page-hero');
+    if (heroEl) {
+      new IntersectionObserver(([entry]) => {
+        diagFloat.classList.toggle('show', !entry.isIntersecting);
+      }, { rootMargin: '-200px 0px 0px 0px' }).observe(heroEl);
+    } else {
+      diagFloat.classList.add('show');
+    }
   }
 
   // 8.1 Proof Image Lightbox Modal Controls
@@ -423,30 +443,18 @@ document.addEventListener('DOMContentLoaded', () => {
   revealElements.forEach(el => revealObserver.observe(el));
 
   // 10. Active Nav Link Highlight on Scroll
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  const highlightNav = () => {
-    const scrollPos = window.scrollY + 150;
-
-    sections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      const id = section.getAttribute('id');
-
-      if (scrollPos >= top && scrollPos < top + height) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  };
-
-  window.addEventListener('scroll', highlightNav);
-  highlightNav(); // Run once on load
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  if (navLinks.length) {
+    // a section counts as "current" while it crosses a thin band near the top of the screen
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
+      });
+    }, { rootMargin: '-140px 0px -70% 0px' });
+    document.querySelectorAll('section[id]').forEach(section => navObserver.observe(section));
+  }
 
   // 11. Hero Cursor Spotlight (same pattern as glass-card, hover-only devices)
   const heroSection = document.querySelector('.hero-section');

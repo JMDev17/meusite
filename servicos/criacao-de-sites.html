@@ -14,10 +14,16 @@
   <meta property="og:url" content="https://jmdev17.github.io/meusite/servicos/criacao-de-sites.html">
   <link rel="canonical" href="https://jmdev17.github.io/meusite/servicos/criacao-de-sites.html">
 
-  <!-- Favicon & Stylesheet -->
+  <meta name="theme-color" content="#05100d">
+
+  <!-- Fonts used above the fold, fetched in parallel with the CSS -->
+  <link rel="preload" href="../fonts/dm-serif-display-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Favicon & Stylesheet (styles.min.css is generated from styles.css) -->
   <link rel="icon" type="image/avif" href="../images/favicon.avif">
   <link rel="icon" type="image/png" href="../images/favicon.png">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.min.css">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Criação de Sites", "description": "Criação de sites profissionais, rápidos e otimizados para SEO desde o desenvolvimento, com páginas de serviço estratégicas pensadas para aparecer no Google e converter.", "provider": {"@type": "ProfessionalService", "name": "JM Soluções", "founder": {"@type": "Person", "name": "João Menini"}}, "areaServed": "BR"}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanto tempo leva para o site ficar pronto?", "acceptedAnswer": {"@type": "Answer", "text": "Em média de 3 a 6 semanas, dependendo da quantidade de páginas e da agilidade no envio de informações."}}, {"@type": "Question", "name": "O site já vem otimizado para SEO?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. SEO técnico, estrutura de títulos, velocidade, dados estruturados e páginas de serviço fazem parte do projeto desde o início."}}, {"@type": "Question", "name": "Posso atualizar o site depois?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Você pode solicitar ajustes ou combinar um plano de manutenção e evolução contínua."}}, {"@type": "Question", "name": "Vocês fazem redesign sem perder posições?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Mapeio as URLs atuais e faço os redirecionamentos corretos para preservar o que o site já conquistou."}}]}</script>
 </head>
@@ -34,7 +40,7 @@
   <header>
     <nav class="navbar" id="navbar" aria-label="Navegação principal">
       <a href="../index.html" class="logo">
-        <img src="../images/logo.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
+        <img src="../images/logo-390.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
       </a>
 
       <ul class="nav-links">
@@ -317,7 +323,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="../index.html" class="logo">
-            <img src="../images/logo.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
+            <img src="../images/logo-390.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
           </a>
           <p>
             João Menini, consultor SEO. Faço empresas de serviço serem a resposta quando alguém pesquisa no Google, no Maps ou numa IA.
@@ -494,6 +500,6 @@
   </div>
 
   <!-- JavaScript App Logic -->
-  <script src="../app.js"></script>
+  <script src="../app.js" defer></script>
 </body>
 </html>

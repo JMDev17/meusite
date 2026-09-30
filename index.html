@@ -14,10 +14,16 @@
   <meta property="og:url" content="https://jmdev17.github.io/meusite/">
   <link rel="canonical" href="https://jmdev17.github.io/meusite/">
 
-  <!-- Favicon & Stylesheet -->
+  <meta name="theme-color" content="#05100d">
+
+  <!-- Fonts used above the fold, fetched in parallel with the CSS -->
+  <link rel="preload" href="fonts/dm-serif-display-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Favicon & Stylesheet (styles.min.css is generated from styles.css) -->
   <link rel="icon" type="image/avif" href="images/favicon.avif">
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.min.css">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "JM Soluções", "description": "Consultoria SEO, SEO local, Google Meu Negócio, criação de sites e GEO para empresas de serviço.", "founder": {"@type": "Person", "name": "João Menini", "jobTitle": "Consultor SEO"}, "areaServed": "BR", "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Consultoria SEO"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Auditoria de SEO"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Google Meu Negócio"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SEO Local"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Criação de Sites"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "GEO — SEO para IAs"}}]}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Em quanto tempo eu vejo resultado?", "acceptedAnswer": {"@type": "Answer", "text": "Os primeiros sinais (páginas indexadas, impressões subindo) costumam aparecer entre o 2º e o 3º mês. Contato chegando de forma constante é coisa de médio prazo. Eu te mostro a evolução todo mês para você não ficar no escuro enquanto isso."}}, {"@type": "Question", "name": "Você garante primeiro lugar no Google?", "acceptedAnswer": {"@type": "Answer", "text": "Não, e desconfie de quem garante. Ninguém controla o algoritmo. O que eu garanto é método, execução caprichada e transparência sobre o que está funcionando e o que não está."}}, {"@type": "Question", "name": "Funciona para empresa pequena ou de bairro?", "acceptedAnswer": {"@type": "Answer", "text": "Funciona muito bem. Negócio local costuma disputar pesquisas com menos concorrência, e o Google Maps é uma das vitrines que mais geram ligação e mensagem."}}, {"@type": "Question", "name": "Eu vou falar com você ou com uma equipe?", "acceptedAnswer": {"@type": "Answer", "text": "Comigo. Do diagnóstico ao relatório mensal, você tem um único responsável que conhece o seu negócio."}}, {"@type": "Question", "name": "Preciso ter site para começar?", "acceptedAnswer": {"@type": "Answer", "text": "Não. Dá para começar pelo Google Meu Negócio e, quando fizer sentido, criar um site que já nasce pronto para SEO."}}, {"@type": "Question", "name": "SEO ou Google Ads: qual é melhor?", "acceptedAnswer": {"@type": "Answer", "text": "São coisas diferentes. O Ads é aluguel: parou de pagar, sumiu. O SEO é imóvel próprio: demora mais para construir, mas continua trazendo cliente sem custo por clique. Muitas empresas usam os dois."}}, {"@type": "Question", "name": "E as IAs, dá para aparecer no ChatGPT?", "acceptedAnswer": {"@type": "Answer", "text": "Dá para aumentar muito as chances, mas ninguém pode garantir. O trabalho de GEO deixa sua empresa clara e confiável para as IAs, e quase tudo que ajuda nelas também ajuda no Google."}}, {"@type": "Question", "name": "Como funciona o diagnóstico?", "acceptedAnswer": {"@type": "Answer", "text": "Você responde 4 passos rápidos, as respostas chegam no meu WhatsApp e eu te respondo pessoalmente, já com uma leitura inicial do seu cenário. Sem compromisso."}}]}</script>
 </head>
@@ -34,7 +40,7 @@
   <header>
     <nav class="navbar" id="navbar" aria-label="Navegação principal">
       <a href="index.html" class="logo">
-        <img src="images/logo.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
+        <img src="images/logo-390.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
       </a>
 
       <ul class="nav-links">
@@ -138,7 +144,7 @@
       <div class="container about-grid">
         <div class="about-photo reveal-left">
           <span class="about-photo-monogram" aria-hidden="true">JM</span>
-          <img src="fotos/joao-menini.avif" alt="João Menini, consultor SEO" width="814" height="638" loading="lazy">
+          <img src="fotos/joao-menini.avif" srcset="fotos/joao-menini-480.avif 480w, fotos/joao-menini.avif 814w" sizes="(max-width: 992px) 90vw, 440px" alt="João Menini, consultor SEO" width="814" height="638" loading="lazy" decoding="async">
           <div class="about-photo-badge">
             <strong>João Menini</strong>
             <span>Consultor SEO · Fundador da JM Soluções</span>
@@ -460,7 +466,7 @@
           <article class="glass-card case-card" data-cat="seo">
             <div class="proof-media-box" role="button" tabindex="0" aria-label="Ampliar print: 7,13 mil aparições no Google em 6 meses." data-img-src="fotos/resultados/seo-6-meses.avif" data-img-alt="Google Search Console, últimos 6 meses: 129 cliques, 7,13 mil impressões, CTR de 1,8% e posição média 11,9" data-img-caption="SEO ORGÂNICO: Google Search Console, últimos 6 meses (abr–set 2026)">
               <div class="proof-img-frame">
-                <img src="fotos/resultados/seo-6-meses.avif" alt="Google Search Console, últimos 6 meses: 129 cliques, 7,13 mil impressões, CTR de 1,8% e posição média 11,9" class="proof-img" loading="lazy" width="1095" height="430">
+                <img src="fotos/resultados/seo-6-meses.avif" alt="Google Search Console, últimos 6 meses: 129 cliques, 7,13 mil impressões, CTR de 1,8% e posição média 11,9" class="proof-img" loading="lazy" decoding="async" width="1095" height="430">
               </div>
               <div class="proof-expand-hint"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span>Ampliar print</span></div>
             </div>
@@ -481,7 +487,7 @@
           <article class="glass-card case-card" data-cat="seo">
             <div class="proof-media-box" role="button" tabindex="0" aria-label="Ampliar print: Site novo com 2,65 mil impressões no primeiro mês." data-img-src="fotos/resultados/site-novo-30-dias.avif" data-img-alt="Google Search Console de um site novo desde 19 de agosto de 2026: 47 cliques, 2,65 mil impressões e posição média 6,4" data-img-caption="SITE NOVO: Google Search Console, primeiros 30 dias no ar">
               <div class="proof-img-frame">
-                <img src="fotos/resultados/site-novo-30-dias.avif" alt="Google Search Console de um site novo desde 19 de agosto de 2026: 47 cliques, 2,65 mil impressões e posição média 6,4" class="proof-img" loading="lazy" width="1094" height="421">
+                <img src="fotos/resultados/site-novo-30-dias.avif" alt="Google Search Console de um site novo desde 19 de agosto de 2026: 47 cliques, 2,65 mil impressões e posição média 6,4" class="proof-img" loading="lazy" decoding="async" width="1094" height="421">
               </div>
               <div class="proof-expand-hint"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span>Ampliar print</span></div>
             </div>
@@ -502,7 +508,7 @@
           <article class="glass-card case-card" data-cat="gmb">
             <div class="proof-media-box" role="button" tabindex="0" aria-label="Ampliar print: 1.312 interações no Google Maps em 6 meses." data-img-src="fotos/resultados/gmb-1312-interacoes.avif" data-img-alt="Desempenho do Perfil da Empresa no Google de abril a setembro de 2026: 1.312 interações, 230 em setembro" data-img-caption="GOOGLE MEU NEGÓCIO: 1.312 interações no perfil entre abril e setembro de 2026">
               <div class="proof-img-frame">
-                <img src="fotos/resultados/gmb-1312-interacoes.avif" alt="Desempenho do Perfil da Empresa no Google de abril a setembro de 2026: 1.312 interações, 230 em setembro" class="proof-img" loading="lazy" width="879" height="506">
+                <img src="fotos/resultados/gmb-1312-interacoes.avif" alt="Desempenho do Perfil da Empresa no Google de abril a setembro de 2026: 1.312 interações, 230 em setembro" class="proof-img" loading="lazy" decoding="async" width="879" height="506">
               </div>
               <div class="proof-expand-hint"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span>Ampliar print</span></div>
             </div>
@@ -561,7 +567,7 @@
                 </button>
                 <div class="voice-wave" aria-hidden="true"><span style="--h:97%"></span><span style="--h:77%"></span><span style="--h:58%"></span><span style="--h:70%"></span><span style="--h:79%"></span><span style="--h:50%"></span><span style="--h:86%"></span><span style="--h:68%"></span><span style="--h:74%"></span><span style="--h:73%"></span><span style="--h:51%"></span><span style="--h:86%"></span><span style="--h:37%"></span><span style="--h:85%"></span><span style="--h:100%"></span><span style="--h:57%"></span><span style="--h:73%"></span><span style="--h:95%"></span><span style="--h:47%"></span><span style="--h:96%"></span><span style="--h:70%"></span><span style="--h:62%"></span><span style="--h:88%"></span><span style="--h:70%"></span><span style="--h:32%"></span><span style="--h:84%"></span><span style="--h:100%"></span><span style="--h:13%"></span><span style="--h:77%"></span><span style="--h:92%"></span><span style="--h:47%"></span><span style="--h:75%"></span><span style="--h:76%"></span><span style="--h:86%"></span><span style="--h:77%"></span><span style="--h:40%"></span><span style="--h:75%"></span><span style="--h:45%"></span><span style="--h:83%"></span><span style="--h:60%"></span><span style="--h:74%"></span><span style="--h:57%"></span></div>
                 <span class="voice-time">0:28</span>
-                <audio preload="metadata" src="audios/depoimento-cliente-loja.m4a"></audio>
+                <audio preload="none" src="audios/depoimento-cliente-loja.m4a"></audio>
               </div>
             </div>
             <div class="testimonial-body">
@@ -791,7 +797,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">
-            <img src="images/logo.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
+            <img src="images/logo-390.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
           </a>
           <p>
             João Menini, consultor SEO. Faço empresas de serviço serem a resposta quando alguém pesquisa no Google, no Maps ou numa IA.
@@ -968,6 +974,6 @@
   </div>
 
   <!-- JavaScript App Logic -->
-  <script src="app.js"></script>
+  <script src="app.js" defer></script>
 </body>
 </html>

@@ -14,10 +14,16 @@
   <meta property="og:url" content="https://jmdev17.github.io/meusite/politica-de-privacidade.html">
   <link rel="canonical" href="https://jmdev17.github.io/meusite/politica-de-privacidade.html">
 
-  <!-- Favicon & Stylesheet -->
+  <meta name="theme-color" content="#05100d">
+
+  <!-- Fonts used above the fold, fetched in parallel with the CSS -->
+  <link rel="preload" href="fonts/dm-serif-display-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Favicon & Stylesheet (styles.min.css is generated from styles.css) -->
   <link rel="icon" type="image/avif" href="images/favicon.avif">
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.min.css">
 </head>
 <body data-origin="pela página de Política de Privacidade" data-service="">
 
@@ -32,7 +38,7 @@
   <header>
     <nav class="navbar" id="navbar" aria-label="Navegação principal">
       <a href="index.html" class="logo">
-        <img src="images/logo.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
+        <img src="images/logo-390.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
       </a>
 
       <ul class="nav-links">
@@ -138,7 +144,7 @@
 <h3>Contato direto pelo WhatsApp</h3>
 <p>Ao clicar em um botão de WhatsApp, a conversa acontece no aplicativo, com os dados que você decidir compartilhar lá.</p>
 <h3>Dados técnicos</h3>
-<p>Este site <strong>não usa cookies de rastreamento, pixels de anúncio nem ferramentas de análise de visitantes</strong>. As fontes do site são carregadas do Google Fonts, o que faz o seu navegador se comunicar com servidores do Google e enviar informações técnicas, como endereço IP e tipo de navegador, conforme a política de privacidade do Google.</p>
+<p>Este site <strong>não usa cookies de rastreamento, pixels de anúncio nem ferramentas de análise de visitantes</strong>. Fontes, imagens e demais arquivos são servidos pelo próprio site, sem carregar recursos de terceiros durante a navegação. Como em qualquer site, o serviço de hospedagem pode registrar dados técnicos de acesso, como endereço IP e tipo de navegador, para fins de segurança e funcionamento.</p>
 
 <h2 id="como-o-formulario-funciona">Como o formulário funciona</h2>
 <p>O formulário <strong>não envia seus dados para nenhum servidor ou banco de dados do site</strong>. Ao clicar em “Enviar diagnóstico”, o seu próprio navegador abre o WhatsApp com uma mensagem pronta contendo as suas respostas, e é você quem decide enviá-la.</p>
@@ -199,7 +205,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">
-            <img src="images/logo.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
+            <img src="images/logo-390.avif" alt="JM Soluções" class="logo-img" width="330" height="110">
           </a>
           <p>
             João Menini, consultor SEO. Faço empresas de serviço serem a resposta quando alguém pesquisa no Google, no Maps ou numa IA.
@@ -376,6 +382,6 @@
   </div>
 
   <!-- JavaScript App Logic -->
-  <script src="app.js"></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
